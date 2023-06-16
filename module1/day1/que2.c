@@ -1,3 +1,4 @@
+#include<stdio.h>
 int main(){
   
      int marks; 
@@ -27,6 +28,5 @@ int main(){
      { 
          printf("Grade A\n"); 
      } 
-  
      return 0;
 }
