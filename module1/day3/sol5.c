@@ -1,19 +1,31 @@
 #include <stdio.h>
-#include <limits.h>
 
-void findSmallestLargestDigits(int n, int numbers[]) {
-    int smallest = INT_MAX;
-    int largest = INT_MIN;
+void findSmallestLargestDigits(int n);
 
-    for (int i = 0; i < n; i++) {
-        int num = numbers[i];
+int main() {
+    int n;
+    printf("Enter the number of values: ");
+    scanf("%d", &n);
 
-        while (num > 0) {
+    findSmallestLargestDigits(n);
+
+    return 0;
+}
+
+void findSmallestLargestDigits(int n) {
+    int i, num;
+    int smallest = 9, largest = 0;
+
+    for (i = 1; i <= n; i++) {
+        printf("Enter number %d: ", i);
+        scanf("%d", &num);
+
+        while (num != 0) {
             int digit = num % 10;
 
             if (digit < smallest) {
                 smallest = digit;
-            }
+             }
 
             if (digit > largest) {
                 largest = digit;
@@ -23,28 +35,10 @@ void findSmallestLargestDigits(int n, int numbers[]) {
         }
     }
 
-    printf("Smallest digit: %d\n", smallest);
-    printf("Largest digit: %d\n", largest);
-}
-
-int main() {
-    int n;
-    printf("Enter the value of n: ");
-    scanf("%d", &n);
-
-    if (n <= 0) {
+    if (smallest == 9 && largest == 0) {
         printf("Not Valid\n");
-        return 0;
+    } else {
+        printf("Smallest digit: %d\n", smallest);
+        printf("Largest digit: %d\n", largest);
     }
-
-    int numbers[n];
-
-    for (int i = 0; i < n; i++) {
-        printf("Enter number %d: ", i + 1);
-        scanf("%d", &numbers[i]);
-    }
-
-    findSmallestLargestDigits(n, numbers);
-
-    return 0;
 }

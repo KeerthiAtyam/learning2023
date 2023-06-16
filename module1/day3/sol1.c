@@ -1,38 +1,33 @@
 #include <stdio.h>
 
-void print_numbers(int n) {
-    int i;
-    for (i = 1; i <= n; i++) {
-        printf("%d", i);
-    }
-    for (i = n - 1; i >= 1; i--) {
-        printf("%d", i);
-    }
-}
-
-void print_spaces(int n) {
-    int i;
-    for (i = 1; i <= n - 2; i++) {
-        printf(" ");
-    }
-}
-
-void print_pattern(int n) {
-    int i;
-    for (i = n; i >= 1; i--) {
-        print_numbers(i);
-        if (i > 1) {
-            print_spaces(i);
-        }
-        print_numbers(i);
-        printf("\n");
-    }
-}
+void printPattern(int n);
 
 int main() {
     int n;
     printf("Enter the value of n: ");
     scanf("%d", &n);
-    print_pattern(n);
+    
+    printPattern(n);
+    
     return 0;
+}
+
+void printPattern(int n) {
+    int i, j;
+
+    for (i = n; i >= 1; i--) {
+        for (j = 1; j <= i; j++) {
+            printf("%d", j);
+        }
+
+        for (j = 1; j <= 2 * (n - i); j++) {
+            printf(" ");
+        }
+
+        for (j = i; j >= 1; j--) {
+            printf("%d", j);
+        }
+        
+        printf("\n");
+    }
 }
